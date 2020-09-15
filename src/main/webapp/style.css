@@ -1,0 +1,132 @@
+
+/* 
+    Created on : 17-Aug-2020, 17:57:34
+    Author     : darylhowe
+*/
+
+body{
+    background-color: lightsalmon;
+    color: black;
+    font-family: "Roboto";
+    margin-left: 10vw;
+    margin-right: 10vw;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: repeat;
+    background-image: url("../../../Assets/Bank03.jpg");
+    background-size: 100%;
+}
+
+p{
+    line-height: 20px;
+}
+
+.displayInfo{
+    width: 30%;
+    height: 70%;
+    background-color: white;
+    border-radius: 20px;
+    float: right;
+    position: fixed;
+    top: 80px;
+    left: 58%;
+    overflow: auto;
+    padding: 20px;
+}
+
+.displayInfo h1{
+    text-align: center;
+    background: white;
+    border-radius: 3px;
+    width: 100%;
+}
+
+.displayInfo p{
+    text-align: center;
+    /*background-color: cornflowerblue;*/
+    border-radius: 3px;
+}
+
+.displayInfo button{
+    margin-left: 35%;
+}
+
+input{
+    width: 200px;
+    padding: 5px;
+}
+
+label{
+    padding: 10px;
+    display: block; 
+    width: 200px 
+}
+
+button{
+    display: inline-block;
+    padding: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: silver;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 2px #999;
+    margin-top: 1vh;
+}
+
+button:hover {    background-color: lightsalmon;
+}
+
+button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.demoContainer button{
+    display: block;
+    margin: auto;
+}
+
+.title,
+.demoContainer,
+.additionalTrainingNotes,
+.newCustomer,
+.openNewAccount,
+.makeADeposit,
+.makeAWithDrawal,
+.makeATransfer,
+.viewAccount{
+    background: white;
+    padding: 20px;
+    width: 30%;
+    border: none;
+    border-radius: 20px;
+}
+
+.title{
+    padding: 20px;
+
+}
+
+.demoContainer{
+    width: 30%;
+    height: 1160px;
+}
+
+.customerContainer{
+    color: black;
+    background: rgb(242, 242, 242);
+    margin-bottom: 20px;
+    border-radius: 3px;
+    padding: 5px;
+    margin-right: 20px;
+
+}
+
+#people {
+  min-height: 200px;
+}

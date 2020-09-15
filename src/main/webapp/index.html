@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> HH Online Banking Services</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="APIendpoints.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <link href="style.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+
+    </head>
+    <body>
+            
+           <div class = "title">
+                <h1> Welcome to 'OBank'</h1>
+           </div>
+        <br><br>
+           <div class = "demoContainer">
+                     
+                    <h1> A Quick Demo!</h1>
+                    
+                    <p> As a new employee of the bank we would like you to get you up to date with our banking service. Therefore, we have created a short walk-through so you can discover some over our features and how we operate.  </p>
+                    
+                    <p> In order to load all of our past customers into the server please hit the button below! </p>
+                    <button onclick="loadPastCustomersIntoMemory()"> Create Bank </button>
+                    
+                    <p> As you can see we current have 3 customers at OBank. Lets concentrate on our customer 'Daryl Howe'.</p>
+                    <p> To view all the different type of accounts that Daryl holds click the button below. Notice Daryl holds two debit accounts and a single credit account. An accounts type can be viewed via 'Account Type'.</p>
+                    <button onclick="viewDarylsAccounts()"> View All Daryl's Accounts </button>
+                    
+                    <p> To get a quick overview of Daryl's '41324' credit account click the button below.</p>
+                    <button onclick="viewDarylAccount41324()"> View Daryl's '41324' General Account Details </button>
+
+                    <p> To view the transaction history of Daryl's '41324' credit account click the button below.</p>
+                    <button onclick="viewDarylAccountHistory41324()"> View Daryl's '41324' Account Transaction History </button>
+
+                    <p> To view Daryl's '83232' account balance click the button below.</p>
+                    <button onclick="viewDaryls83232AccountBalance()"> View Daryl's 83232 Account Balance </button>
+         
+                    <p> To view Daryl's personal details and accounts list together click on the button below.</p>
+                    <button onclick="viewDarylsDetails()"> View Daryl's Entire Details </button>
+                    
+                    <p> If you would like to view our customer list at any time simply press the button below. We find this button particularly useful when customers forget their login details, IDs etc etc.  </p>
+                    <button onclick="viewAllCustomers()"> View All Customers </button>
+           
+           </div>
+           
+           <div class = "displayInfo">
+               <h1> 'OBank' Display   </h1>
+               <p> This is the <b> OBank display </b>. Here you can view the details and information as requested by you!</p> 
+               <ul id="people" class="list-unstyled"></ul>
+               
+               <p> If you would like to view our customer list at any time simply press the button below.  </p>              
+               <button onclick="viewAllCustomers()"> View All Customers </button>            
+           </div
+ 
+           <ul id="people" class="list-unstyled"></ul>
+
+           <ul id="customerDetails" class="list-unstyled"></ul>
+           <ul id="accountsDetials" class="list-unstyled"></ul>
+           <ul id="accounts" class="list-unstyled"></ul>
+
+                      <br><br><br><br>
+           
+           <div class="additionalTrainingNotes">
+               <h1> Additional Training Notes! </h1>
+               
+               <p> That's it for our short run through! Remember you can use the buttons above when trying to understand how some our features work! </p>
+               <p> Our past customer's passwords have always been of the format of <b> 'firstNameSecondName' </b> in lowercase. Feel free to follow this format or enter whatever password you would like. </p>
+               <p> EG - Daryl Howe has the password 'darylhowe'.  </p>
+               
+               <p> Please note a customer must first be created and exist before they can open any type of account. If you know a way to assign an account to someone who doesn't exist let us know and we'll give you a bonus. </p>
+               <p> Customers are assigned ID's automatically by the bank. If you need to get a customers ID simply hit the button below and look it up. </p>
+               <button onclick="viewAllCustomers()"> View All Customers </button>
+               <p> Debit accounts cannot go into arrears while credit accounts can. </p>
+               
+               <h1> Time to explore! </h1>
+               <p> Feel free to create an account and start making transactions yourself.</p>
+
+           </div>
+                      <br><br><br>
+
+                                <div class="newCustomer">
+               <h2> Create New Customer </h2>
+               Simply fill out the details below to create a new customer.
+               
+               <br><br>
+               A customer will be assigned a unique customer ID that will be needed
+               to operate their account.
+
+               <label for="newCustomerFirstName"> Enter Your First Name: </label>
+               <input type="text" id="newCustomerFirstName" name="newCustomerFirstName">
+               <br>
+
+               <label for="newCustomerSecondName"> Enter Your Second Name: </label>
+               <input type="text" id="newCustomerSecondName" name="newCustomerSecondName">
+               <br>
+
+               <label for="newCustomerEmailAddress"> Enter Your Email Address: </label>
+               <input type="text" id="newCustomerEmailAddress" name="newCustomerEmailAddress">
+               <br>
+
+               <label for="newCustomerPassword"> Enter Your Password: </label>
+               <input type="text" id="newCustomerPassword" name="newCustomerPassword">
+               <br>
+
+               <button onclick="createCustomer()"> Create New Customer! </button>
+               <br></br>
+           </div>
+
+           <br>
+           <br>
+           <br>
+           
+           <div class="viewAccount">               
+               <h2> View Account </h2>
+               
+               In order to view an account simply fill out some or all of the below details (as requested).
+
+               <label for="customerId"> Enter Your Customer ID: </label>
+               <input type="text" id="customerId" name="customerId">
+               <br>
+               
+               <label for="customerPassword"> Enter Your Password: </label>
+               <input type="text" id="customerPassword" name="customerPassword">
+
+               <label for="accountNumber"> Enter Account Number: </label>
+               <input type="text" id="accountNumber" name="accountNumber">
+               
+               <br>
+               <br>
+
+                <button onclick="viewDetails()"> View Details and Accounts (ID, Password) </button>
+
+               <button onclick="viewAccountByNumber()"> View Account By Number (ID, Account Number, Password) </button>
+
+               <button onclick="viewAccountHistory()"> View Account Transaction History (ID, Account Number, Password) </button>
+               <br><br>
+           </div>
+           
+           <br>
+           <br>
+           <br>
+           
+           <div class="openNewAccount">
+
+               <h2> Open New Account </h2>
+                           
+               There are two types of accounts a customer can open - <b> debit </b> and <b> credit </b>
+               <br><br>
+               In order to open a new account you must already be a customer with the bank. If you are not
+               already a customer please see 'Create New Customer'. 
+
+               <br><br> 
+               Simply fill out the details below to open a new account.
+  
+               <label for="customerIdOpenAccount"> Enter Your Customer ID: </label>
+               <input type="text" id="customerIdOpenAccount" name="customerIdOpenAccount">
+               <br>
+
+               <label for="customerPasswordOpenAccount"> Enter Your Password: </label>
+               <input type="text" id="customerPasswordOpenAccount" name="customerPasswordOpenAccount">
+               <br>
+
+               <label for="accountTypeOpenAccount"> Account Type (Credit/Debit): </label>
+               <input type="text" id="accountTypeOpenAccount" name="accountTypeOpenAccount">
+               <br>
+
+               <label for="accountNumberOpenAccount"> Account Number: </label>
+               <input type="text" id="accountNumberOpenAccount" name="accountNumberOpenAccount">
+               <br>           
+
+               <label for="openingBalanceOpenAccount"> Opening Balance: </label>
+               <input type="text" id="openingBalanceOpenAccount" name="openingBalanceOpenAccount">
+               <br>              
+
+               <label for="sortCodeOpenAccount"> SortCode: </label>
+               <input type="text" id="sortCodeOpenAccount" name="sortCodeOpenAccount">
+               <br>    
+
+               <button onclick="openNewAccount()"> Open Your New Account! </button>
+                              <br><br>
+           </div>
+                      <br>
+           <br>
+           <br>
+           
+           <div class="makeADeposit">
+               <h2> Make A Deposit </h2>
+               Simply fill out the details below to make a deposit. We currently have no limit
+               on the amount that you can deposit into your account. 
+
+               <label for="customerIdDeposit"> Enter Your Customer ID: </label>
+               <input type="text" id="customerIdDeposit" name="customerIdDeposit">
+               <br>
+
+               <label for="customerPasswordDeposit"> Enter Your Password: </label>
+               <input type="text" id="customerPasswordDeposit" name="customerPasswordDeposit">
+               <br>
+
+               <label for="accountNumberDeposit"> Enter Your Account Number: </label>
+               <input type="text" id="accountNumberDeposit" name="accountNumberDeposit">
+               <br>           
+
+               <label for="depositAmountDeposit"> Deposit Amount: </label>
+               <input type="text" id="depositAmountDeposit" name="depositAmountDeposit">
+               <br>              
+
+               <label for="descriptionDeposit"> Transaction Description: </label>
+               <input type="text" id="descriptionDeposit" name="descriptionDeposit">
+               <br>   
+
+               <button onclick="deposit()"> Deposit to your Account! </button>
+               <br><br>
+           </div>
+           
+           
+           <br>
+           <br>
+           
+           <div class="makeAWithDrawal">
+               <h2> Make A Withdrawal </h2>
+               Simply fill out the details below to make a withdrawal.
+               
+               <br><br>
+               Please note that you cannot withdraw more than your current balance from <b> debit </b> accounts. If you are
+               withdrawing from your credit account their is currently no withdraw limit - your account will go into arrears. 
+               <label for="customerIdWithdraw"> Enter Your Customer ID: </label>
+               <input type="text" id="customerIdWithdraw" name="customerIdWithdraw">
+               <br>
+
+               <label for="customerPasswordWithdraw"> Enter Your Password: </label>
+               <input type="text" id="customerPasswordWithdraw" name="customerPasswordWithdraw">
+               <br>
+
+               <label for="accountNumberWithdraw"> Enter Your Account Number: </label>
+               <input type="text" id="accountNumberWithdraw" name="accountNumberWithdraw">
+               <br>           
+
+               <label for="withdrawAmountWithdraw"> Withdraw Amount: </label>
+               <input type="text" id="withdrawAmountWithdraw" name="withdrawAmountWithdraw">
+               <br>              
+
+               <label for="descriptionWithdraw"> Transaction Description: </label>
+               <input type="text" id="descriptionWithdraw" name="descriptionWithdraw">
+               <br>   
+
+               <button onclick="withdraw()"> Withdraw from your Account! </button>
+               <br><br>
+           </div>
+           <br>
+           <br>
+           
+           <div class="makeATransfer">
+
+               <h2> Make A Transfer </h2>
+               Simply fill out the details below to make a transfer.
+               <br><br>
+               Please note that a transfer will be rejected and given a status failed if you are attempting to
+               transfer more money from a debit account than its current balance. 
+
+               <label for="customerSenderIdTransfer"> Customer ID (Sender): </label>
+               <input type="text" id="customerSenderIdTransfer" name="customerSenderIdTransfer">
+               <br>
+
+               <label for="customerReceiverIdTransfer"> Customer ID (Receiver): </label>
+               <input type="text" id="customerReceiverIdTransfer" name="customerReceiverIdTransfer">
+               <br>
+
+               <label for="customerPasswordTransfer"> Enter Your Password: </label>
+               <input type="text" id="customerPasswordTransfer" name="customerPasswordTransfer">
+               <br>
+
+               <label for="accountNumberSenderTransfer"> Enter Your Account Number (Sender): </label>
+               <input type="text" id="accountNumberSenderTransfer" name="accountNumberSenderTransfer">
+               <br>           
+
+               <label for="accountNumberReceiverTransfer"> Enter Account Number of Receiver: </label>
+               <input type="text" id="accountNumberReceiverTransfer" name="accountNumberReceiverTransfer">
+               <br>  
+
+               <label for="transferAmountTransfer"> Transfer Amount: </label>
+               <input type="text" id="transferAmountTransfer" name="transferAmountTransfer">
+               <br>              
+
+               <label for="descriptionTransfer"> Transfer Description: </label>
+               <input type="text" id="descriptionTransfer" name="descriptionTransfer">
+               <br>   
+
+               <button onclick="transfer()"> Make the transfer! </button>
+               <br><br>
+           </div>
+           
+   
+    </body>
+</html>
